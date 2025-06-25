@@ -33,10 +33,16 @@ using (var ctx = new AppDbContext())
     ctx.Database.EnsureDeleted();
 }
 
+/*
+    Results:
+        1 - default behavior => prevents
+        2 - NoAction => prevents
+        3- ClientSetNull => prevents
+        4- Restrict => prevents 
+        5- Cascade => deletes both 
+        5- SetNull (first commit) => set null in DB
 
-// Results:
-// 1- default behavior => prevents
-// 2- NoAction => prevents
-// 3- ClientSetNull => prevents
-// 4- Restrict => prevents 
-// 5- SetNull => set null in DB
+    Conclusion:
+        We really only have 3 options: prevent / delete both / set null 
+*/
+
