@@ -63,8 +63,7 @@ namespace EmployeeJobs.Migrations
                 {
                     b.HasOne("EmployeeJobs.Job", "Job")
                         .WithMany("Employees")
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("JobId");
 
                     b.Navigation("Job");
                 });

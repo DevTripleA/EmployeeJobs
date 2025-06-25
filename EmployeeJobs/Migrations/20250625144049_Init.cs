@@ -39,8 +39,7 @@ namespace EmployeeJobs.Migrations
                         name: "FK_Employees_Jobs_JobId",
                         column: x => x.JobId,
                         principalTable: "Jobs",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.SetNull);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

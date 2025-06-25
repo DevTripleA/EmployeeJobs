@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeJobs.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250625133200_Init")]
+    [Migration("20250625144049_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -66,8 +66,7 @@ namespace EmployeeJobs.Migrations
                 {
                     b.HasOne("EmployeeJobs.Job", "Job")
                         .WithMany("Employees")
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("JobId");
 
                     b.Navigation("Job");
                 });

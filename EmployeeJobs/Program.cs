@@ -1,16 +1,25 @@
 ﻿using EmployeeJobs;
 using Microsoft.EntityFrameworkCore;
 
+// Create DB
 using (var ctx = new AppDbContext())
 {
-    ctx.Jobs.Add(new Job
+    ctx.Database.Migrate();
+}
+
+// Insert job and employee
+using (var ctx = new AppDbContext())
+{
+    var job = new Job
     {
         Title = "Carpenter",
         Employees = { new Employee { Name = "Alice" } }
-    });
+    };
+    ctx.Jobs.Add(job);
     ctx.SaveChanges();
 }
 
+// Delete job
 using (var ctx = new AppDbContext())
 {
     var job = ctx.Jobs.Single();
@@ -18,8 +27,16 @@ using (var ctx = new AppDbContext())
     ctx.SaveChanges();
 }
 
-// 1- default behavior => set null in DB
-// 2- Restrict => prevents (if entity is not tracked)
-// 3- ClientSetNull => prevents (if entity is not tracked)
-// 4- NoAction => prevents (if entity is not tracked)
-// 5- SetNull => set null in DB (if entity is tracked?!)
+// Drop DB
+using (var ctx = new AppDbContext())
+{
+    ctx.Database.EnsureDeleted();
+}
+
+
+// Results:
+// 1- default behavior => prevents
+// 2- SetNull => set null in DB
+// 3- Restrict => prevents 
+// 4- ClientSetNull => prevents
+// 5- NoAction => prevents

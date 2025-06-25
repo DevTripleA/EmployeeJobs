@@ -33,16 +33,16 @@ namespace EmployeeJobs
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>()
-                .HasOne(e => e.Job)
-                .WithMany(j => j.Employees)
-                .HasForeignKey(e => e.JobId)
-            // Try one of these:
-            //.OnDelete(DeleteBehavior.ClientSetNull);
-            //.OnDelete(DeleteBehavior.NoAction);
-            .OnDelete(DeleteBehavior.SetNull);
-            //.OnDelete(DeleteBehavior.Cascade);
-            //.OnDelete(DeleteBehavior.Restrict);  // pick one
+            //modelBuilder.Entity<Employee>()
+            //    .HasOne(e => e.Job)
+            //    .WithMany(j => j.Employees)
+            //    .HasForeignKey(e => e.JobId)
+            //// Try one of these:
+            ////.OnDelete(DeleteBehavior.ClientSetNull);
+            ////.OnDelete(DeleteBehavior.NoAction);
+            //.OnDelete(DeleteBehavior.SetNull);
+            ////.OnDelete(DeleteBehavior.Cascade);
+            ////.OnDelete(DeleteBehavior.Restrict);  // pick one
         }
     }
 
