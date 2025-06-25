@@ -35,8 +35,8 @@ using (var ctx = new AppDbContext())
 
 /*
     Results:
-        1 - default behavior => prevents
-        2 - NoAction => prevents
+        1- default behavior => prevents
+        2- NoAction => prevents
         3- ClientSetNull => prevents
         4- Restrict => prevents 
         5- Cascade => deletes both 
