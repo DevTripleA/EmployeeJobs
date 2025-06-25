@@ -36,7 +36,7 @@ using (var ctx = new AppDbContext())
 
 // Results:
 // 1- default behavior => prevents
-// 2- SetNull => set null in DB
-// 3- Restrict => prevents 
-// 4- ClientSetNull => prevents
-// 5- NoAction => prevents
+// 2- NoAction => prevents
+// 3- ClientSetNull => prevents
+// 4- Restrict => prevents 
+// 5- SetNull => set null in DB
