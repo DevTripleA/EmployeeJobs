@@ -38,11 +38,11 @@ namespace EmployeeJobs
                 .WithMany(j => j.Employees)
                 .HasForeignKey(e => e.JobId)
             // Try one of these:
-            .OnDelete(DeleteBehavior.ClientSetNull);
+            //.OnDelete(DeleteBehavior.ClientSetNull);
             //.OnDelete(DeleteBehavior.NoAction);
             //.OnDelete(DeleteBehavior.SetNull);
             //.OnDelete(DeleteBehavior.Cascade);
-            //.OnDelete(DeleteBehavior.Restrict);  // pick one
+            .OnDelete(DeleteBehavior.Restrict);  // pick one
         }
     }
 
